@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-    <img src="./static/img/readme-images/icon.png" alt="Ícone do Portfólio" width="400"/>
+    <img src="./static/img/readme-images/icon.png" alt="Ícone do Portfólio" width="700"/>
 </div>
 
 <p align="center">
