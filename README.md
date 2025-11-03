@@ -4,7 +4,6 @@
 
 <div align="center">
     <img src="./static/img/readme-images/icon.png" alt="Ícone do Portfólio" width="128"/>
-    <h1>Meu Portfólio Pessoal</h1>
 </div>
 
 <p align="center">

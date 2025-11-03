@@ -4,7 +4,6 @@
 
 <div align="center">
     <img src="./static/img/readme-images/icon.png" alt="Portfolio Icon" width="128"/>
-    <h1>My Personal Portfolio</h1>
 </div>
 
 <p align="center">
