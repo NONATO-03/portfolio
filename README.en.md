@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-    <img src="./static/img/readme-images/icon.png" alt="Portfolio Icon" width="128"/>
+    <img src="./static/img/readme-images/icon.png" alt="Portfolio Icon" width="250"/>
 </div>
 
 <p align="center">
@@ -24,7 +24,7 @@ Watch a full demonstration of the live website:
 
 <p align="center">
   <a href="https://youtu.be/AwQg6tu3Gfo" target="_blank">
-    <img src="./static/img/readme-images/thumbnail.png" alt="Portfolio Video Demo" width="80%">
+    <img src="./static/img/readme-images/home.png" alt="Portfolio Video Demo" width="80%">
   </a>
   <br>
   <em>Click the image to watch the video</em>
@@ -64,7 +64,7 @@ Watch a full demonstration of the live website:
 </p>
 
 <p align="center">
-  <img src="./static/img/readme-images/projects.png" alt="Projects Section" width="80%">
+  <img src="./static/img/readme-images/projetos.png" alt="Projects Section" width="80%">
   <br>
   <em>Projects section with detailed cards.</em>
 </p>

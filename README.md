@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-    <img src="./static/img/readme-images/icon.png" alt="Ícone do Portfólio" width="128"/>
+    <img src="./static/img/readme-images/icon.png" alt="Ícone do Portfólio" width="250"/>
 </div>
 
 <p align="center">
@@ -24,7 +24,7 @@ Assista a uma demonstração completa do site em funcionamento:
 
 <p align="center">
   <a href="https://youtu.be/AwQg6tu3Gfo" target="_blank">
-    <img src="./static/img/readme-images/thumbnail.png" alt="Vídeo de Demonstração do Portfólio" width="80%">
+    <img src="./static/img/readme-images/home.png" alt="Vídeo de Demonstração do Portfólio" width="80%">
   </a>
   <br>
   <em>Clique na imagem para ver o vídeo</em>
@@ -64,7 +64,7 @@ Assista a uma demonstração completa do site em funcionamento:
 </p>
 
 <p align="center">
-  <img src="./static/img/readme-images/projects.png" alt="Seção de Projetos" width="80%">
+  <img src="./static/img/readme-images/projetos.png" alt="Seção de Projetos" width="80%">
   <br>
   <em>Seção de projetos com cards detalhados.</em>
 </p>
