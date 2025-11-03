@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ config.INFORMACOES_PESSOAIS.NOME }} | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+
+    <header class="header">
+        <nav class="nav-container">
+            <div class="nav-links">
+                <a href="#home">{{ config.NAVEGACAO.HOME }}</a>
+                <a href="#sobre">{{ config.NAVEGACAO.SOBRE }}</a>
+                <a href="#projetos">{{ config.NAVEGACAO.PROJETOS }}</a>
+                <a href="#educacao">{{ config.NAVEGACAO.EDUCACAO }}</a>
+                <a href="#contato">{{ config.NAVEGACAO.CONTATO }}</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="section" id="home">
+            <div class="hero-main-content">
+                <div class="hero-text-container animate-on-scroll">
+                    <h1 class="hero-title">Meu<br>Portfolio</h1>
+                    <p>{{ config.INFORMACOES_PESSOAIS.TEXTO_HERO_1 }} <strong>{{ config.INFORMACOES_PESSOAIS.NOME }}</strong></p>
+                    <p>{{ config.INFORMACOES_PESSOAIS.TEXTO_HERO_2 }}</p>
+                    <div class="social-orbs">
+                        <a href="/static/documents/curriculo.pdf" download class="baixar-cv-btn">
+                            Baixar CV
+                        </a>
+                        <a href="{{ config.REDES_SOCIAIS.GITHUB_URL }}" target="_blank" class="orb"><i data-feather="github"></i></a>
+                        <a href="{{ config.REDES_SOCIAIS.LINKEDIN_URL }}" target="_blank" class="orb"><i data-feather="linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="hero-frames-container animate-on-scroll">
+                    <div class="frame frame-vertical" id="floating-frame" style="background-image: url('{{ url_for('static', filename=config.INFORMACOES_PESSOAIS.FOTO_VERTICAL_URL) }}');"></div>
+                </div>
+            </div>
+            <div class="languages-bar animate-on-scroll">
+                <div class="languages-icons">
+                    {% for lang in config.LINGUAGENS if lang.ativo %}
+                        <img src="{{ url_for('static', filename='img/icons/' ~ lang.icone) }}"
+                            alt="{{ lang.nome }}" class="language-icon">
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- SOBRE MIM -->
+        <section class="section section-dark" id="sobre">
+            <h2 class="section-title animate-on-scroll">{{ config.SOBRE_MIM.TITULO }}</h2>
+            <div class="about-content animate-on-scroll">
+                <p>{{ config.SOBRE_MIM.CONTEUDO | safe }}</p>
+            </div>
+        </section>
+
+        <!-- PROJETOS -->
+        <section class="section" id="projetos">
+            <h2 class="section-title-right animate-on-scroll">{{ config.NAVEGACAO.PROJETOS | upper }}</h2>
+            <div class="cards-container">
+                {% for projeto in config.PROJETOS %}
+                <div class="card animate-on-scroll">
+                    <div class="card-content">
+                        <h3>{{ projeto.TITULO }}</h3>
+                        <p>{{ projeto.DESCRICAO }}</p>
+                        <div class="project-techs">
+                            {% for tech in projeto.TECNOLOGIAS %}
+                                <span class="tech-tag">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="project-images" style="flex-direction: column; align-items: flex-end;">
+                        <div style="display: flex; gap: 12px;">
+                            {% for img in projeto.IMAGENS %}
+                                <img src="{{ url_for('static', filename='img/projects/' ~ img) }}" alt="{{ projeto.TITULO }}">
+                            {% endfor %}
+                        </div>
+                        <div class="project-links" style="margin-top: 18px;">
+                            {% if projeto.DEMO %}
+                                <a href="{{ projeto.DEMO_LINK }}" target="_blank" class="project-link-btn">DEMO</a>
+                            {% endif %}
+                            {% if projeto.REPOSITORIO %}
+                                <a href="{{ projeto.REPOSITORIO_LINK }}" target="_blank" class="project-link-btn">REPOSITORIO</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- EDUCAÇÃO -->
+        <section class="section" id="educacao">
+        <h2 class="section-title-right animate-on-scroll">{{ config.NAVEGACAO.EDUCACAO | upper }}</h2>
+        <div class="cards-container">
+            {% for item in config.EDUCACAO %}
+            <div class="card animate-on-scroll">
+            <div class="card-content">
+                <h3>{{ item.TITULO }}</h3>
+                <p>{{ item.DESCRICAO }}</p>
+            </div>
+
+            {% if item.CERTIFICADO %}
+            <div class="edu-actions">
+                {% if item.CERTIFICADO_ARQUIVO %}
+                <a href="{{ url_for('static', filename=item.CERTIFICADO_ARQUIVO) }}" target="_blank" class="edu-link-btn">CERTIFICADO</a>
+                {% elif item.CERTIFICADO_LINK %}
+                <a href="{{ item.CERTIFICADO_LINK }}" target="_blank" class="edu-link-btn">CERTIFICADO</a>
+                {% endif %}
+            </div>
+            {% endif %}
+
+            <div class="card-contrast"></div>
+            </div>
+            {% endfor %}
+        </div>
+        </section>
+
+
+        <!-- CONTATO -->
+        <section class="section section-dark" id="contato">
+            <h2 class="section-title animate-on-scroll">{{ config.CONTATO.TITULO }}</h2>
+            <p class="contact-email animate-on-scroll">{{ config.INFORMACOES_PESSOAIS.EMAIL }}</p>
+            <p class="animate-on-scroll">{{ config.CONTATO.TEXTO_OU }}</p>
+            <form action="/enviar_email" method="post" class="contact-form animate-on-scroll">
+                <input type="text" name="assunto" placeholder="{{ config.CONTATO.PLACEHOLDER_ASSUNTO }}" required>
+                <textarea name="mensagem" placeholder="{{ config.CONTATO.PLACEHOLDER_MENSAGEM }}" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+
+    </main>
+
+    <script>
+        feather.replace()
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+    <canvas id="mouse-trail"></canvas>
+</body>
+</html>
